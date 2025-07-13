@@ -244,7 +244,7 @@ export default function ThreeTiersWithLogosAndFeatureComparison() {
                               : `Not included in ${tier.name}`}
                           </span>
                         </>
-                      )}}
+                      )
                     </td>
                   ))}
                 </tr>
