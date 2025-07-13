@@ -89,17 +89,25 @@ export default function WithComparisonTableOnDark() {
                   <li key={section.name}>
                     <ul role="list" className="space-y-4">
                       {section.features.map((feature) =>
-                        feature.tiers[tier.name] ? (
+                        (feature.tiers as { [key: string]: boolean | string })[tier.name] ? (
                           <li key={feature.name} className="flex gap-x-3">
                             <CheckIcon aria-hidden="true" className="h-6 w-5 flex-none text-indigo-400" />
                             <span>
-                              {feature.name}{' '}
-                              {typeof feature.tiers[tier.name] === 'string' ? (
-                                <span className="text-sm/6 text-gray-400">({feature.tiers[tier.name]})</span>
-                              ) : null}
+                              {typeof (feature.tiers as { [key: string]: boolean | string })[tier.name] === 'string'
+                                ? (feature.tiers as { [key: string]: boolean | string })[tier.name]
+                                : feature.name}
                             </span>
                           </li>
-                        ) : null,
+                        ) : (
+                          <li key={feature.name} className="flex gap-x-3">
+                            <MinusIcon aria-hidden="true" className="h-6 w-5 flex-none text-gray-500" />
+                            <span>
+                              {typeof (feature.tiers as { [key: string]: boolean | string })[tier.name] === 'string'
+                                ? (feature.tiers as { [key: string]: boolean | string })[tier.name]
+                                : feature.name}
+                            </span>
+                          </li>
+                        )
                       )}
                     </ul>
                   </li>
