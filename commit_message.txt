@@ -1,3 +1,3 @@
-fix: Resolve syntax error in pricing component with logos (second attempt)
+fix: Resolve TypeScript indexing error in pricing component with logos (third attempt)
 
-Removed an extra closing curly brace in `src/components/blocks/pricing/three-tiers-with-logos-and-feature-comparison.tsx` to fix a syntax error.
+Applied explicit type assertion to `feature.tiers` in `src/components/blocks/pricing/three-tiers-with-logos-and-feature-comparison.tsx` to resolve a TypeScript error.
