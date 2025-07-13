@@ -215,7 +215,7 @@ const Logo = () => {
 };
 
 const transition = {
-  type: "spring",
+  type: "spring" as "spring",
   mass: 0.5,
   damping: 11.5,
   stiffness: 100,
