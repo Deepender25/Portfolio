@@ -1,3 +1,3 @@
-fix: Resolve TypeScript indexing error in pricing component (with-comparison-table-on-dark.tsx)
+fix: Resolve TypeScript indexing error in pricing component (with-comparison-table-on-dark.tsx) - second attempt
 
 Applied explicit type assertion to `feature.tiers` in `src/components/blocks/pricing/with-comparison-table-on-dark.tsx` to resolve a TypeScript error.

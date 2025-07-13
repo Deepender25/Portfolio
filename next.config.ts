@@ -13,6 +13,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Ensure proper handling of TypeScript files
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  // Enable standalone build for deployment
+  output: 'standalone',
+  // Optimize for production
+  experimental: {
+    optimizeCss: true,
+  },
 };
 
 export default nextConfig;
