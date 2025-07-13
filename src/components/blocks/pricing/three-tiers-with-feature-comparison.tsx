@@ -1,6 +1,8 @@
 import { CheckIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
-const tiers = [
+type TierName = 'Starter' | 'Growth' | 'Scale';
+
+const tiers: { id: string; name: TierName; description: string; price: { monthly: string; annually: string; }; highlights: string[]; featured: boolean; }[] = [
   {
     id: 'starter',
     name: 'Starter',
@@ -245,22 +247,22 @@ export default function ThreeTiersWithFeatureComparison() {
                                 >
                                   <dt className="pr-4 text-gray-600">{feature.name}</dt>
                                   <dd className="flex items-center justify-end sm:justify-center sm:px-4">
-                                    {typeof feature.tiers[tier.name] === 'string' ? (
+                                    {typeof (feature.tiers as { [key: string]: boolean | string })[tier.name] === 'string' ? (
                                       <span
                                         className={tier.featured ? 'font-semibold text-indigo-600' : 'text-gray-900'}
                                       >
-                                        {feature.tiers[tier.name]}
+                                        {(feature.tiers as { [key: string]: boolean | string })[tier.name]}
                                       </span>
                                     ) : (
                                       <>
-                                        {feature.tiers[tier.name] === true ? (
+                                        {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true ? (
                                           <CheckIcon aria-hidden="true" className="mx-auto size-5 text-indigo-600" />
                                         ) : (
                                           <XMarkIcon aria-hidden="true" className="mx-auto size-5 text-gray-400" />
                                         )}
 
                                         <span className="sr-only">
-                                          {feature.tiers[tier.name] === true ? 'Yes' : 'No'}
+                                          {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true ? 'Yes' : 'No'}
                                         </span>
                                       </>
                                     )}
