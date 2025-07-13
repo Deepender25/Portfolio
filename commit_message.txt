@@ -1,3 +1,3 @@
-fix: Resolve type error in useOutsideClick hook
+fix: Resolve Framer Motion transition type error
 
-Updated the `useOutsideClick` hook in `src/components/blocks/cards/expandable-card-on-click.tsx` to correctly handle `RefObject<HTMLDivElement | null>`, resolving a TypeScript error.
+Updated `src/components/blocks/navbars/navbar-with-children.tsx` to explicitly cast the `type` property of the transition object to `"spring"`, resolving a TypeScript error.
