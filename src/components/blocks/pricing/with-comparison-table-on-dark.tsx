@@ -197,18 +197,18 @@ export default function WithComparisonTableOnDark() {
                         </th>
                         {tiers.map((tier) => (
                           <td key={tier.id} className="px-6 py-4 xl:px-8">
-                            {typeof feature.tiers[tier.name] === 'string' ? (
-                              <div className="text-center text-sm/6 text-gray-300">{feature.tiers[tier.name]}</div>
+                            {typeof (feature.tiers as { [key: string]: boolean | string })[tier.name] === 'string' ? (
+                              <div className="text-center text-sm/6 text-gray-300">{(feature.tiers as { [key: string]: boolean | string })[tier.name]}</div>
                             ) : (
                               <>
-                                {feature.tiers[tier.name] === true ? (
+                                {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true ? (
                                   <CheckIcon aria-hidden="true" className="mx-auto size-5 text-indigo-400" />
                                 ) : (
                                   <MinusIcon aria-hidden="true" className="mx-auto size-5 text-gray-500" />
                                 )}
 
                                 <span className="sr-only">
-                                  {feature.tiers[tier.name] === true ? 'Included' : 'Not included'} in {tier.name}
+                                  {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true ? 'Included' : 'Not included'} in {tier.name}
                                 </span>
                               </>
                             )}
