@@ -1,0 +1,5 @@
+feat: Resolve build errors and update admin page
+
+- Created a new API route `/api/contact-submissions` to handle server-side fetching of contact submissions, resolving the 'fs' module error during build.
+- Updated `src/app/admin/page.tsx` to fetch data from the new API route.
+- Ensured React and React-DOM versions are set to 18.2.0 to resolve peer dependency conflicts.
