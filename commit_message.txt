@@ -1,3 +1,0 @@
-fix: Resolve implicit any type in classNames function in two-tiers-with-emphasized-tier.tsx
-
-Explicitly typed the 'classes' rest parameter in the 'classNames' function within 'src/components/blocks/pricing/two-tiers-with-emphasized-tier.tsx' to resolve a TypeScript error.
