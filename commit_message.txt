@@ -1,3 +1,3 @@
-fix: Resolve Framer Motion transition type error
+fix: Resolve implicit any type in classNames function
 
-Updated `src/components/blocks/navbars/navbar-with-children.tsx` to explicitly cast the `type` property of the transition object to `"spring"`, resolving a TypeScript error.
+Explicitly typed the 'classes' rest parameter in the 'classNames' function within 'src/components/blocks/pricing/three-tiers-with-feature-comparison.tsx' to resolve a TypeScript error.
