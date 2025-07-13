@@ -1,13 +1,14 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { ContactSubmission, getContactSubmissions } from '@/lib/database';
+import { ContactSubmission } from '@/lib/database';
 
 export default function AdminPage() {
   const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
 
   useEffect(() => {
     (async () => {
-      const submissions = await getContactSubmissions();
+      const response = await fetch('/api/contact-submissions');
+      const submissions = await response.json();
       setSubmissions(submissions);
     })();
   }, []);
