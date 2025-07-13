@@ -225,26 +225,26 @@ export default function ThreeTiersWithLogosAndFeatureComparison() {
                   </th>
                   {tiers.map((tier) => (
                     <td key={tier.name} className="p-4 max-sm:text-center">
-                      {typeof feature.tiers[tier.name] === 'string' ? (
+                      {typeof (feature.tiers as { [key: string]: boolean | string })[tier.name] === 'string' ? (
                         <>
                           <span className="sr-only">{tier.name} includes:</span>
-                          <span className="text-sm/6 text-gray-950">{feature.tiers[tier.name]}</span>
+                          <span className="text-sm/6 text-gray-950">{(feature.tiers as { [key: string]: boolean | string })[tier.name]}</span>
                         </>
                       ) : (
                         <>
-                          {feature.tiers[tier.name] === true ? (
+                          {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true ? (
                             <CheckIcon aria-hidden="true" className="inline-block size-4 fill-green-600" />
                           ) : (
                             <MinusIcon aria-hidden="true" className="inline-block size-4 fill-gray-400" />
                           )}
 
                           <span className="sr-only">
-                            {feature.tiers[tier.name] === true
+                            {(feature.tiers as { [key: string]: boolean | string })[tier.name] === true
                               ? `Included in ${tier.name}`
                               : `Not included in ${tier.name}`}
                           </span>
                         </>
-                      )}
+                      )}}
                     </td>
                   ))}
                 </tr>

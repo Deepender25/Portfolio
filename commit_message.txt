@@ -1,3 +1,3 @@
-fix: Resolve TypeScript indexing error in pricing component
+fix: Ensure correct type inference for feature tiers
 
-Explicitly cast `feature.tiers` to `{ [key: string]: boolean | string }` when accessing its properties in `src/components/blocks/pricing/three-tiers-with-feature-comparison.tsx` to resolve a TypeScript error.
+Applied explicit type assertion to `feature.tiers` in `src/components/blocks/pricing/three-tiers-with-feature-comparison.tsx` to resolve TypeScript error related to implicit 'any' type.
