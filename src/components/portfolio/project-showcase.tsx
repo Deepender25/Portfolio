@@ -136,27 +136,27 @@ export default function ProjectShowcase() {
                   
                   {/* Card content */}
                   <motion.div
-                    className={`relative bg-card rounded-2xl p-8 h-full ${project.glowColor} group-hover:shadow-2xl transition-all duration-500`}
+                    className={`relative bg-card rounded-2xl p-8 h-full ${project.glowColor} group-hover:shadow-2xl transition-all duration-300`}
                     whileHover={{
-                      y: -10,
-                      scale: 1.02,
+                      y: -2,
                     }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 25 }}
                   >
                     {/* Project Icon */}
                     <motion.div
                       className={`w-16 h-16 ${project.accentColor} mb-6 relative`}
-                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
                       <Icon size={64} className="absolute inset-0" />
                       <motion.div
-                        className={`absolute inset-0 bg-gradient-to-r ${project.borderColor} opacity-30 blur-md`}
+                        className={`absolute inset-0 bg-gradient-to-r ${project.borderColor} opacity-20 blur-md`}
                         animate={{
-                          scale: [1, 1.2, 1],
-                          opacity: [0.3, 0.6, 0.3],
+                          scale: [1, 1.1, 1],
+                          opacity: [0.2, 0.4, 0.2],
                         }}
                         transition={{
-                          duration: 3,
+                          duration: 4,
                           repeat: Infinity,
                           ease: "easeInOut",
                         }}
@@ -172,25 +172,12 @@ export default function ProjectShowcase() {
                       {project.subtitle}
                     </p>
 
-                    {/* Description with reveal animation */}
-                    <motion.div
-                      initial={false}
-                      animate={{
-                        height: "auto",
-                      }}
-                      className="mb-6"
-                    >
-                      <p className="font-[var(--font-secondary-family)] text-muted-foreground text-sm md:text-base leading-relaxed group-hover:hidden">
+                    {/* Description */}
+                    <div className="mb-6">
+                      <p className="font-[var(--font-secondary-family)] text-muted-foreground text-sm md:text-base leading-relaxed">
                         {project.description}
                       </p>
-                      <motion.p
-                        initial={{ opacity: 0, height: 0 }}
-                        whileInView={{ opacity: 1, height: "auto" }}
-                        className="font-[var(--font-secondary-family)] text-muted-foreground text-sm md:text-base leading-relaxed hidden group-hover:block"
-                      >
-                        {project.longDescription}
-                      </motion.p>
-                    </motion.div>
+                    </div>
 
                     {/* Tech Stack */}
                     <div className="flex flex-wrap gap-2 mb-8">
@@ -248,7 +235,7 @@ export default function ProjectShowcase() {
             href="https://github.com/Deepender25"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-[var(--font-primary-family)] bg-gradient-to-r from-primary via-secondary to-lime-400 hover:from-secondary hover:via-lime-400 hover:to-primary text-black px-8 h-10 rounded-md text-lg tracking-wider transition-all duration-500 transform hover:scale-105 flex items-center justify-center"
+            className="font-[var(--font-primary-family)] bg-gradient-to-r from-primary via-secondary to-lime-400 hover:from-secondary hover:via-lime-400 hover:to-primary text-black px-8 h-10 rounded-md text-lg tracking-wider transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 flex items-center justify-center"
           >
             <Github className="w-6 h-6 mr-3" />
             EXPLORE ALL PROJECTS

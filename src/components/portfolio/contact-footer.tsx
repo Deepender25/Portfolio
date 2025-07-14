@@ -186,11 +186,11 @@ const ContactButton = ({ href, icon: Icon, children, description, className = ""
         </motion.div>
         
         <div className="flex-1 min-w-0">
-          <div className="font-bold font-[var(--font-display)] text-sm text-primary group-hover:text-primary transition-colors pixel-text"
+          <div className="font-bold font-[var(--font-display)] text-xs sm:text-sm text-primary group-hover:text-primary transition-colors pixel-text break-words"
                style={{ textShadow: isHovered ? '0 0 10px currentColor' : 'none' }}>
             {children}
           </div>
-          <div className="text-xs text-text-secondary mt-1 font-[var(--font-body)]">
+          <div className="text-xs text-text-secondary mt-1 font-[var(--font-body)] break-words">
             {description}
           </div>
         </div>
@@ -323,7 +323,7 @@ export default function ContactFooter() {
   }
 
   return (
-    <footer className="relative bg-background py-20 overflow-hidden">
+    <footer className="relative bg-background py-10 sm:py-20 overflow-hidden">
       {/* Enhanced grid background */}
       <div 
         className="absolute inset-0 opacity-15"
@@ -361,16 +361,16 @@ export default function ContactFooter() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="flex items-center justify-between mb-12 p-4 bg-background/60 border border-primary/30 rounded-lg backdrop-blur-sm"
+          className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-0 mb-8 lg:mb-12 p-4 bg-background/60 border border-primary/30 rounded-lg backdrop-blur-sm"
         >
-          <div className="flex items-center gap-4">
-            <Terminal className="w-5 h-5 text-primary" />
-            <span className="font-mono text-sm text-primary">deepender@portfolio:~/contact$</span>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <Terminal className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+            <span className="font-mono text-xs sm:text-sm text-primary break-all">deepender@portfolio:~/contact$</span>
           </div>
           <StatusDisplay />
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Enhanced Contact Information */}
           <div className="space-y-8">
             <motion.div
