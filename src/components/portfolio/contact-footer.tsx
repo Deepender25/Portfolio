@@ -428,7 +428,7 @@ export default function ContactFooter() {
                 </ContactButton>
 
                 <ContactButton 
-                  href="www.linkedin.com/in/deepender25" 
+                  href="https://www.linkedin.com/in/deepender25/" 
                   icon={Linkedin}
                   description="PROFESSIONAL_NETWORK"
                 >
