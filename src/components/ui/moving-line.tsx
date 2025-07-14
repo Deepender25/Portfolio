@@ -10,7 +10,7 @@ import {
 const MovingLine = () => {
   const transition = {
     duration: 14,
-    ease: "easeInOut",
+    ease: [0.42, 0, 0.58, 1] as const,
   };
 
   const ref = useRef<any>(null);

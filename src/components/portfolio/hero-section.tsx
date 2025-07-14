@@ -70,7 +70,7 @@ const HeroSection = () => {
       transition: {
         duration: 8,
         repeat: Infinity,
-        ease: "linear"
+      ease: "linear" as const
       }
     }
   }
@@ -82,7 +82,7 @@ const HeroSection = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut"
+      ease: "easeInOut" as const
       }
     }
   }
@@ -129,7 +129,7 @@ const HeroSection = () => {
               duration: drop.duration,
               repeat: Infinity,
               delay: drop.delay,
-              ease: "linear"
+      ease: "linear" as const
             }}
           />
         ))}
@@ -202,7 +202,7 @@ const HeroSection = () => {
           duration: 3,
           repeat: Infinity,
           repeatType: "loop",
-          ease: "linear"
+          ease: "linear" as const
         }}
       />
 

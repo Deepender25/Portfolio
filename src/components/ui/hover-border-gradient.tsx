@@ -1,28 +1,44 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 type Direction = "TOP" | "LEFT" | "BOTTOM" | "RIGHT";
 
+type HoverBorderGradientProps<T extends React.ElementType> = {
+  as?: T;
+  containerClassName?: string;
+  className?: string;
+  duration?: number;
+  clockwise?: boolean;
+  children?: React.ReactNode;
+} & Omit<React.ComponentPropsWithRef<T>, 'onMouseEnter' | 'onMouseLeave'> & {
+  onMouseEnter?: React.MouseEventHandler<HTMLElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLElement>;
+};
+
 export function HoverBorderGradient({
   children,
   containerClassName,
   className,
-  as: Tag = "button",
+  as = "button",
   duration = 1,
   clockwise = true,
+  onMouseEnter,
+  onMouseLeave,
   ...props
-}: React.PropsWithChildren<
-  {
-    as?: React.ElementType;
-    containerClassName?: string;
-    className?: string;
-    duration?: number;
-    clockwise?: boolean;
-  } & React.HTMLAttributes<HTMLElement>
->) {
+}: {
+  children?: React.ReactNode;
+  containerClassName?: string;
+  className?: string;
+  as?: React.ElementType;
+  duration?: number;
+  clockwise?: boolean;
+  onMouseEnter?: React.MouseEventHandler<HTMLElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLElement>;
+  [key: string]: any;
+}) {
+  const Tag = as;
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>("TOP");
 
@@ -55,45 +71,63 @@ export function HoverBorderGradient({
       return () => clearInterval(interval);
     }
   }, [hovered]);
-  return (
-    <Tag
-      onMouseEnter={(event: React.MouseEvent<HTMLDivElement>) => {
+  return React.createElement(
+    Tag,
+    {
+      onMouseEnter: (e: any) => {
         setHovered(true);
-      }}
-      onMouseLeave={() => setHovered(false)}
-      className={cn(
+        if (onMouseEnter) {
+          onMouseEnter(e);
+        }
+      },
+      onMouseLeave: (e: any) => {
+        setHovered(false);
+        if (onMouseLeave) {
+          onMouseLeave(e);
+        }
+      },
+      className: cn(
         "relative flex rounded-full border  content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
         containerClassName
-      )}
-      {...props}
-    >
-      <div
-        className={cn(
+      ),
+      ...props
+    },
+    React.createElement(
+      "div",
+      {
+        className: cn(
           "w-auto text-white z-10 bg-black px-4 py-2 rounded-[inherit]",
           className
-        )}
-      >
-        {children}
-      </div>
-      <motion.div
-        className={cn(
+        )
+      },
+      children
+    ),
+    React.createElement(
+      motion.div,
+      {
+        className: cn(
           "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
-        )}
-        style={{
+        ),
+        style: {
           filter: "blur(2px)",
           position: "absolute",
           width: "100%",
           height: "100%",
-        }}
-        initial={{ background: movingMap[direction] }}
-        animate={{
+        },
+        initial: { background: movingMap[direction] },
+        animate: {
           background: hovered
             ? [movingMap[direction], highlight]
             : movingMap[direction],
-        }}
-        transition={{ ease: "linear", duration: duration ?? 1 }}
-      />
-      <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
-    </Tag>
+        },
+        transition: { ease: "linear", duration: duration ?? 1 }
+      }
+    ),
+    React.createElement(
+      "div",
+      {
+        className: "bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]"
+      }
+    )
   );
 }

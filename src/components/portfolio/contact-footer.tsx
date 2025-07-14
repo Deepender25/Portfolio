@@ -125,7 +125,7 @@ const TypedPlaceholder = ({ text, delay = 0 }: { text: string; delay?: number })
 // Enhanced glowing contact button
 const ContactButton = ({ href, icon: Icon, children, description, className = "" }: {
   href?: string
-  icon: React.ElementType
+  icon: React.ComponentType<{ className?: string }>
   children: React.ReactNode
   description: string
   className?: string

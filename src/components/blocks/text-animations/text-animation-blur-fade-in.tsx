@@ -1,6 +1,6 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { AnimationProps, motion } from "motion/react";
+import { motion } from "motion/react";
 import React from "react";
 
 export function TextAnimationBlurFadeInDemo() {
@@ -48,7 +48,7 @@ const Text = ({
   children: string;
   className?: string;
   delay?: number;
-} & AnimationProps) => {
+} & React.ComponentProps<typeof motion.p>) => {
   return (
     <motion.p
       {...animationProps}

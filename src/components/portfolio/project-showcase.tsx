@@ -248,7 +248,6 @@ export default function ProjectShowcase() {
             href="https://github.com/Deepender25"
             target="_blank"
             rel="noopener noreferrer"
-            size="lg"
             className="font-[var(--font-primary-family)] bg-gradient-to-r from-primary via-secondary to-lime-400 hover:from-secondary hover:via-lime-400 hover:to-primary text-black px-8 h-10 rounded-md text-lg tracking-wider transition-all duration-500 transform hover:scale-105 flex items-center justify-center"
           >
             <Github className="w-6 h-6 mr-3" />

@@ -175,11 +175,11 @@ const SkillBlock = ({ skill, index }: { skill: Skill; index: number }) => {
           <motion.div
             className="text-primary"
             animate={{ 
-              color: isHovered ? [skill.glowColor, '#FF1493', skill.glowColor] : skill.glowColor,
               scale: isHovered ? [1, 1.2, 1] : 1
             }}
             transition={{ duration: 0.6, repeat: isHovered ? Infinity : 0 }}
             style={{
+              color: skill.glowColor,
               filter: isHovered ? `drop-shadow(0 0 8px ${skill.glowColor})` : 'none'
             }}
           >
