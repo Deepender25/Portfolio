@@ -207,43 +207,53 @@ const HeroSection = () => {
       />
 
       {/* Main Content - Full Screen Name */}
-      <div className="relative z-10 text-center px-4 w-full h-full flex flex-col items-center justify-center">
+      <div className="relative z-10 text-center px-2 sm:px-4 w-full h-full flex flex-col items-center justify-center max-w-7xl mx-auto">
         {/* Massive Name Display */}
         <motion.h1
           initial={{ opacity: 0, scale: 0.5, y: 100 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="pixel-text text-primary mb-8 relative"
+          className="pixel-text text-primary mb-8 relative w-full"
           style={{
-            fontSize: 'clamp(2rem, 12vw, 8rem)',
-            lineHeight: '0.9',
+            fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+            lineHeight: '0.85',
             textShadow: `
               0 0 20px rgba(0, 255, 255, 0.8), 
               0 0 40px rgba(0, 255, 255, 0.6),
               0 0 60px rgba(0, 255, 255, 0.4),
               0 0 80px rgba(0, 255, 255, 0.2)
             `,
-            letterSpacing: '0.1em',
-            wordSpacing: '0.2em'
+            letterSpacing: 'clamp(-0.02em, 0.05em, 0.1em)',
+            wordSpacing: 'clamp(0.05em, 0.1em, 0.2em)'
           }}
         >
-          DEEPENDER
-          <br />
-          YADAV
-          
-          {/* Name Glow Effect */}
-          <div className="absolute inset-0 pixel-text text-primary animate-pulse opacity-50"
-            style={{
-              fontSize: 'clamp(2rem, 12vw, 8rem)',
-              lineHeight: '0.9',
-              letterSpacing: '0.1em',
-              wordSpacing: '0.2em',
-              filter: 'blur(2px)'
-            }}
-          >
+          <div className="sm:hidden">
             DEEPENDER
             <br />
             YADAV
+          </div>
+          <div className="hidden sm:block">
+            DEEPENDER YADAV
+          </div>
+          
+          {/* Name Glow Effect */}
+          <div className="absolute inset-0 pixel-text text-primary animate-pulse opacity-50 w-full"
+            style={{
+              fontSize: 'clamp(2.5rem, 10vw, 8rem)',
+              lineHeight: '0.85',
+              letterSpacing: 'clamp(-0.02em, 0.05em, 0.1em)',
+              wordSpacing: 'clamp(0.05em, 0.1em, 0.2em)',
+              filter: 'blur(2px)'
+            }}
+          >
+            <div className="sm:hidden">
+              DEEPENDER
+              <br />
+              YADAV
+            </div>
+            <div className="hidden sm:block">
+              DEEPENDER YADAV
+            </div>
           </div>
         </motion.h1>
 
@@ -255,25 +265,27 @@ const HeroSection = () => {
           className="mb-16 relative"
         >
           {/* Terminal-style brackets */}
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="pixel-text text-secondary text-2xl">[</span>
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-4 px-2">
+            <span className="pixel-text text-secondary text-xl sm:text-2xl flex-shrink-0">[</span>
             <h2 
-              className="pixel-text text-secondary font-bold text-center"
+              className="pixel-text text-secondary font-bold text-center min-w-0 flex-1"
               style={{
-                fontSize: 'clamp(0.8rem, 3vw, 1.5rem)',
+                fontSize: 'clamp(0.7rem, 2.5vw, 1.5rem)',
                 textShadow: '0 0 15px rgba(255, 20, 147, 0.7)',
-                letterSpacing: '0.05em'
+                letterSpacing: 'clamp(-0.02em, 0.03em, 0.05em)',
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word'
               }}
             >
               {typedText}
               <span 
-                className={`inline-block w-1 h-6 ml-1 bg-secondary ${showCursor ? 'opacity-100' : 'opacity-0'}`}
+                className={`inline-block w-1 h-4 sm:h-6 ml-1 bg-secondary ${showCursor ? 'opacity-100' : 'opacity-0'}`}
                 style={{
                   animation: 'pulse 1s infinite'
                 }}
               />
             </h2>
-            <span className="pixel-text text-secondary text-2xl">]</span>
+            <span className="pixel-text text-secondary text-xl sm:text-2xl flex-shrink-0">]</span>
           </div>
         </motion.div>
 
