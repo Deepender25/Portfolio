@@ -347,7 +347,7 @@ const HeroSection = () => {
         LOCATION: INDIA
       </div>
       <div className="absolute bottom-4 right-4 pixel-text text-secondary text-xs opacity-70">
-        YEAR: 2024
+        YEAR: 2025
       </div>
     </section>
   )
